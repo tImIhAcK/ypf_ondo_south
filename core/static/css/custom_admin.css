@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;700&display=swap');
+
+:root {
+    --bg-dark: rgb(13, 28, 1);
+    --bg-light: rgb(227, 251, 203);
+    --bg-primary: rgba(88, 195, 6, 0.796);
+    /* --bg-seondary: rgb() */
+    --text-dark: rgb(13, 28, 1);
+    --text-light: rgb(248, 253, 243);
+    --text-primary: rgba(88, 195, 6, 0.796);
+    --btn-primary: rgba(88, 195, 6, 0.796);
+    --btn-outline-primary: rgba(88, 195, 6, 0.796);
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text-light);
+    background-color: var(--bg-light);
+    font-family: 'Kanit', sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+a {
+    text-decoration: none;
+    transition: all 0.4s ease;
+    color: var(--text-primary);
+}
+
+a:hover {
+    color: var(--text-primary);
+}
+
+a:hover,
+a:focus,
+input,
+textarea {
+    text-decoration: none !important;
+    outline: none !important;
+}

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;700&display=swap');
+
+:root {
+    --bg-dark: rgb(13, 28, 1);
+    --bg-light: rgb(227, 251, 203);
+    --bg-primary: rgb(50, 205, 50);
+    /* --bg-seondary: rgb() */
+    --text-dark: rgb(13, 28, 1);
+    --text-light: rgb(248, 253, 243);
+    --text-primary: rgb(50, 205, 50);
+    --text-danger: red;
+    --btn-primary: rgb(50, 205, 50);
+    --btn-outline-primary: rgba(88, 195, 6, 0.796);
+}
+
+.asteriskField{
+    color: var(--text-danger);
+}
+
+/* NAVBER */
+.navbar-dark {
+    background-color: var(--bg-dark);
+}
+
+.navbar-brand .image {
+    max-width: 150px;
+}
+
+.navbar-dark button, 
+.navbar-dark input {
+    background-color: var(--bg-light);
+    border: 1px solid var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.navbar-dark input:focus {
+    background-color: var(--bg-light);
+    border: 1px solid var(--bg-dark);
+    color: var(--text-dark);
+}
+
+
+.main-sidebar{
+    background-color: var(--bg-dark);
+}
+
+.main-sidebar .sidebar .nav-pills .nav-link{
+    color: var(--text-light);
+}
+
+.main-sidebar .sidebar .nav-pills .nav-link.active,
+.main-sidebar .sidebar .nav-pills .nav-link:hover{
+    background-color: var(--bg-light);
+    color: var(--bg-primary);
+}
+
+.content-header h1{
+    color: var(--text-dark);
+}
+
+.content-header .breadcrumb .breadcrumb-item {
+    color: var(--text-dark);
+}
+
+.content-header .breadcrumb .breadcrumb-item  a {
+    color: var(--text-primary);
+}
+
+.bg-dark{
+    background-color: var(--bg-dark) !important;
+}

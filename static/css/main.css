@@ -2,14 +2,14 @@
 
 :root {
     --bg-dark: rgb(13, 28, 1);
-    --bg-light: rgb(227, 251, 203);
-    --bg-primary: rgba(88, 195, 6, 0.796);
+    --bg-light: rgb(248, 251, 245);
+    --bg-primary: rgb(50, 205, 50);
     /* --bg-seondary: rgb() */
     --text-dark: rgb(13, 28, 1);
-    --text-light: rgb(248, 253, 243);
-    --text-primary: rgba(88, 195, 6, 0.796);
-    --btn-primary: rgba(88, 195, 6, 0.796);
-    --btn-outline-primary: rgba(88, 195, 6, 0.796);
+    --text-light: rgb(248, 251, 245);
+    --text-primary: rgb(50, 205, 50);
+    --btn-primary: rgb(50, 205, 50);
+    --btn-outline-primary: rgba(50, 205, 50);
 }
 
 
@@ -29,6 +29,9 @@ ul {
     list-style-type: none;
 }
 
+h2{
+    color: rgb(50, 205, 50);
+}
 
 a {
     text-decoration: none;

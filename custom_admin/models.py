@@ -104,64 +104,64 @@ class Participant(models.Model):
         ordering = ['first_name']
 
 
-class Convert(models.Model):
-    GENDER_CHOICES =(
-        ('', 'Select gender'),
-        ("M", "Male"),
-        ("F", "Female")
-    )
+class Convert(Participant):
+    # GENDER_CHOICES =(
+    #     ('', 'Select gender'),
+    #     ("M", "Male"),
+    #     ("F", "Female")
+    # )
     
-    AGE_CHOICES = (
-        ('', 'Select age group'),
-        ('16-20', '16-20'),
-        ('21-25', '21-25'),
-        ('26-30', '26-30'),
-        ('30-35', '30-35'),
-        ('36-40', '36-40'),
-        ('41-45', '41-45'),
-        ('46-50', '46-50'),
-        ('51-55', '51-55'),
-        ('56-60', '56-60'),
-        ('Above 60', 'Above 60'),
-    )
+    # AGE_CHOICES = (
+    #     ('', 'Select age group'),
+    #     ('16-20', '16-20'),
+    #     ('21-25', '21-25'),
+    #     ('26-30', '26-30'),
+    #     ('30-35', '30-35'),
+    #     ('36-40', '36-40'),
+    #     ('41-45', '41-45'),
+    #     ('46-50', '46-50'),
+    #     ('51-55', '51-55'),
+    #     ('56-60', '56-60'),
+    #     ('Above 60', 'Above 60'),
+    # )
     
-    DENOMINATION_CHOICES = (
-        ('', 'Select denomination'),
-        ('DLCB', 'Depper Life Bible Church'),
-        ('RCCG', 'Redeem Christian Church Of God'),
-        ('CAC', 'Christ Apostolic Church'),
-        ('AF', 'Apostolic Faith'),
-        ('MFM', 'Mountain Of Fire'),
-        ('GOFAMINT', 'Gospel Faith Mission'),
-        ('WC', 'Winners Chapel'),
-        ('CATH', 'Catholic'),
-        ('ANG', 'Anglican Church'),
-        ('BAP', 'Baptist Church'),
-    )
+    # DENOMINATION_CHOICES = (
+    #     ('', 'Select denomination'),
+    #     ('DLCB', 'Depper Life Bible Church'),
+    #     ('RCCG', 'Redeem Christian Church Of God'),
+    #     ('CAC', 'Christ Apostolic Church'),
+    #     ('AF', 'Apostolic Faith'),
+    #     ('MFM', 'Mountain Of Fire'),
+    #     ('GOFAMINT', 'Gospel Faith Mission'),
+    #     ('WC', 'Winners Chapel'),
+    #     ('CATH', 'Catholic'),
+    #     ('ANG', 'Anglican Church'),
+    #     ('BAP', 'Baptist Church'),
+    # )
     
-    CATEGORY_CHOICES =(
-        ('', 'Select category'),
-        ('ENT', 'Enterprenuer'),
-        ('UNGRAD', 'Undergraduate'),
-        ('GRAD', 'Graduate'),
-        ('CORP', 'Corper'),
-        ('PRIVATE/GOVR', 'Private/Goverment Worker'),
-        ('YOUNG PROF', 'Young Professionals'),
-        ('RES', 'Researcher'),
-        ('TERT STAFF', 'Tertiary Institution Worker'),
-        ('POST SEC', 'Post Secondary School Student')
-    )
+    # CATEGORY_CHOICES =(
+    #     ('', 'Select category'),
+    #     ('ENT', 'Enterprenuer'),
+    #     ('UNGRAD', 'Undergraduate'),
+    #     ('GRAD', 'Graduate'),
+    #     ('CORP', 'Corper'),
+    #     ('PRIVATE/GOVR', 'Private/Goverment Worker'),
+    #     ('YOUNG PROF', 'Young Professionals'),
+    #     ('RES', 'Researcher'),
+    #     ('TERT STAFF', 'Tertiary Institution Worker'),
+    #     ('POST SEC', 'Post Secondary School Student')
+    # )
     
-    first_name = models.CharField(verbose_name='First name' ,max_length=32)
-    last_name = models.CharField(verbose_name='Last name' ,max_length=32)
-    gender = models.CharField(verbose_name='Gender',max_length=1, choices=GENDER_CHOICES)
-    age = models.CharField(verbose_name='Age', null=True, max_length=10, choices=AGE_CHOICES)
-    phone_no = PhoneNumberField(unique = True, null=False, blank = False)
-    email = models.EmailField(verbose_name='Email' ,max_length=254)
-    address = models.CharField(verbose_name='Address', null=True ,max_length=100)
-    category  = models.CharField(verbose_name='Category', null=True, max_length=20, choices=CATEGORY_CHOICES)
-    school = models.CharField(verbose_name='School/Work Address', null=True, max_length=100)
-    denomination = models.CharField(verbose_name='Denomination', null=True, max_length=10, choices=DENOMINATION_CHOICES)
+    # first_name = models.CharField(verbose_name='First name' ,max_length=32)
+    # last_name = models.CharField(verbose_name='Last name' ,max_length=32)
+    # gender = models.CharField(verbose_name='Gender',max_length=1, choices=GENDER_CHOICES)
+    # age = models.CharField(verbose_name='Age', null=True, max_length=10, choices=AGE_CHOICES)
+    # phone_no = PhoneNumberField(unique = True, null=False, blank = False)
+    # email = models.EmailField(verbose_name='Email' ,max_length=254)
+    # address = models.CharField(verbose_name='Address', null=True ,max_length=100)
+    # category  = models.CharField(verbose_name='Category', null=True, max_length=20, choices=CATEGORY_CHOICES)
+    # school = models.CharField(verbose_name='School/Work Address', null=True, max_length=100)
+    # denomination = models.CharField(verbose_name='Denomination', null=True, max_length=10, choices=DENOMINATION_CHOICES)
 
     
     @property

@@ -75,13 +75,13 @@ class Participant(models.Model):
     first_name = models.CharField(verbose_name='First name' ,max_length=32)
     last_name = models.CharField(verbose_name='Last name' ,max_length=32)
     gender = models.CharField(verbose_name='Gender', max_length=1, choices=GENDER_CHOICES)
-    age = models.CharField(verbose_name='Age', null=True, max_length=10, choices=AGE_CHOICES)
-    phone_no = PhoneNumberField(unique = True, null=False, blank = False)
-    email = models.EmailField(verbose_name='Email' ,max_length=254)
-    linkedin = models.CharField(verbose_name='LinkedIn', null=True, max_length=60)
+    age = models.CharField(verbose_name='Age', max_length=10, choices=AGE_CHOICES)
+    phone_no = PhoneNumberField(unique = True, null=True, blank=True)
+    email = models.EmailField(verbose_name='Email', null=True, blank=True, max_length=254)
+    linkedin = models.CharField(verbose_name='LinkedIn', null=True, blank=True, max_length=60)
     address = models.CharField(verbose_name='Address', null=True ,max_length=100)
     city = models.CharField(verbose_name='City/Town', null=True, max_length=20)
-    state = models.ForeignKey(State, on_delete=models.DO_NOTHING, related_name='convert_state')
+    state = models.ForeignKey(State, on_delete=models.DO_NOTHING, related_name='_state')
     region = ChainedForeignKey(Region,
                                 chained_field="state",
                                 chained_model_field="state",
@@ -91,6 +91,7 @@ class Participant(models.Model):
     category  = models.CharField(verbose_name='Category', null=True, max_length=20, choices=CATEGORY_CHOICES)
     school = models.CharField(verbose_name='School/Work Address', null=True, max_length=100)
     denomination = models.CharField(verbose_name='Denomination', null=True, max_length=10, choices=DENOMINATION_CHOICES)
+    registered_on = models.DateTimeField(auto_now_add=True)
 
     
     @property
@@ -101,7 +102,7 @@ class Participant(models.Model):
         return self.full_name   
 
     class Meta():
-        ordering = ['first_name']
+        ordering = ['-registered_on']
 
 
 class Convert(models.Model):
@@ -155,12 +156,13 @@ class Convert(models.Model):
     first_name = models.CharField(verbose_name='First name' ,max_length=32)
     last_name = models.CharField(verbose_name='Last name' ,max_length=32)
     gender = models.CharField(verbose_name='Gender',max_length=1, choices=GENDER_CHOICES)
-    age = models.CharField(verbose_name='Age', null=True, max_length=10, choices=AGE_CHOICES)
-    phone_no = PhoneNumberField(unique = True, null=False, blank = False)
-    email = models.EmailField(verbose_name='Email' ,max_length=254)
-    address = models.CharField(verbose_name='Address', null=True ,max_length=100)
-    city = models.CharField(verbose_name='City/Town', null=True, max_length=20)
-    state = models.ForeignKey(State, on_delete=models.DO_NOTHING, related_name='participant_state')
+    age = models.CharField(verbose_name='Age', max_length=10, choices=AGE_CHOICES)
+    phone_no = PhoneNumberField(unique = True, null=True, blank=True)
+    email = models.EmailField(verbose_name='Email', null=True, blank=True, max_length=254)
+    linkedin = models.CharField(verbose_name='LinkedIn', null=True, blank=True, max_length=60)
+    address = models.CharField(verbose_name='Address', max_length=100)
+    city = models.CharField(verbose_name='City/Town', max_length=20)
+    state = models.ForeignKey(State, on_delete=models.DO_NOTHING, related_name='convert_state')
     region = ChainedForeignKey(Region,
                                 chained_field="state",
                                 chained_model_field="state",
@@ -170,6 +172,7 @@ class Convert(models.Model):
     category  = models.CharField(verbose_name='Category', null=True, max_length=20, choices=CATEGORY_CHOICES)
     school = models.CharField(verbose_name='School/Work Address', null=True, max_length=100)
     denomination = models.CharField(verbose_name='Denomination', null=True, max_length=10, choices=DENOMINATION_CHOICES)
+    registered_on = models.DateTimeField(auto_now_add=True)
 
     
     @property
@@ -179,4 +182,4 @@ class Convert(models.Model):
     def __str__(self) -> str:
         return self.full_name
     class Meta():
-        ordering = ['first_name']
+        ordering = ['-registered_on']

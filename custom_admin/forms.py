@@ -9,6 +9,7 @@ class ParticipantForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
+        self.fields['linkedin'].required = False
         self.helper.layout = Layout(
             Row(
                 Column('first_name', css_class='form-group col-md-6 mb-0'),
@@ -21,11 +22,11 @@ class ParticipantForm(forms.ModelForm):
                 css_class='form-row'
             ),
             Row(
-                Column('phone_no', css_class='form-group col-md-6 mb-0'),
-                Column('email', css_class='form-group col-md-6 mb-0'),
+                Column('phone_no', css_class='form-group col-md-4 mb-0'),
+                Column('email', css_class='form-group col-md-4 mb-0'),
+                Column('linkedin', css_class='form-group col-md-4 mb-0'),
                 css_class='form-row'
             ),
-            'linkedin',
             Row(
                 Column('address', css_class='form-group col-md-9 mb-0'),
                 Column('city', css_class='form-group col-md-3 mb-0'),
@@ -52,6 +53,7 @@ class ConvertForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
+        self.fields['linkedin'].required = False
         self.helper.layout = Layout(
             Row(
                 Column('first_name', css_class='form-group col-md-6 mb-0'),
@@ -64,11 +66,11 @@ class ConvertForm(forms.ModelForm):
                 css_class='form-row'
             ),
             Row(
-                Column('phone_no', css_class='form-group col-md-6 mb-0'),
-                Column('email', css_class='form-group col-md-6 mb-0'),
+                Column('phone_no', css_class='form-group col-md-4 mb-0'),
+                Column('email', css_class='form-group col-md-4 mb-0'),
+                Column('linkedin', css_class='form-group col-md-4 mb-0'),
                 css_class='form-row'
             ),
-            'linkedin',
             Row(
                 Column('address', css_class='form-group col-md-9 mb-0'),
                 Column('city', css_class='form-group col-md-3 mb-0'),

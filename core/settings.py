@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     # "crispy_bootstrap5",
     "crispy_forms",
     'phonenumber_field',
-    # 'smart_selects',
+    'smart_selects',
     
     'django.contrib.admin',
     'django.contrib.auth',

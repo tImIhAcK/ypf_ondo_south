@@ -5,8 +5,8 @@ from .models import Participant, Convert, Region, State
 # Register your models here.
 @admin.register(Region)
 class RegionAdmin(admin.ModelAdmin):
-    list_display= ('id', 'regions', 'states')
-    list_filter=('regions',)
+    list_display= ('id', 'region', 'state')
+    list_filter=('region', 'state')
 
 @admin.register(State)
 class StateAdmin(admin.ModelAdmin):

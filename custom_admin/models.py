@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
+from smart_selects.db_fields import ChainedForeignKey
 
 class State(models.Model):
     state = models.CharField(verbose_name='states', max_length=20)
@@ -12,11 +13,11 @@ class State(models.Model):
 
 # Create your models here.
 class Region(models.Model):
-    states = models.ForeignKey('State', on_delete=models.CASCADE, related_name="region_state", null=False)
-    regions = models.CharField(verbose_name='regions', max_length=32)
+    state = models.ForeignKey('State', on_delete=models.CASCADE, related_name="region_state", null=False)
+    region = models.CharField(verbose_name='regions', max_length=32)
     
     def __str__(self) -> str:
-        return self.regions
+        return self.region
     
     class Meta:
         ordering = ['id']
@@ -82,8 +83,13 @@ class Participant(models.Model):
     linkedin = models.CharField(verbose_name='LinkedIn', null=True, max_length=60)
     address = models.CharField(verbose_name='Address', null=True ,max_length=100)
     city = models.CharField(verbose_name='City/Town', null=True, max_length=20)
-    state = models.ForeignKey('State', on_delete=models.DO_NOTHING, related_name='participant_state')
-    region = models.ForeignKey('Region', on_delete=models.DO_NOTHING, related_name='participant_region')
+    state = models.ForeignKey(State, on_delete=models.DO_NOTHING, related_name='participant_state')
+    region = ChainedForeignKey(Region,
+                                chained_field="state",
+                                chained_model_field="state",
+                                show_all=False,
+                                auto_choose=True,
+                                sort=True)
     category  = models.CharField(verbose_name='Category', null=True, max_length=20, choices=CATEGORY_CHOICES)
     school = models.CharField(verbose_name='School/Work Address', null=True, max_length=100)
     denomination = models.CharField(verbose_name='Denomination', null=True, max_length=10, choices=DENOMINATION_CHOICES)

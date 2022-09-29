@@ -6,7 +6,7 @@ from .models import Participant, Convert, Region, State
 @admin.register(Region)
 class RegionAdmin(admin.ModelAdmin):
     list_display= ('id', 'region', 'state')
-    list_filter=('state')
+    list_filter=('state',)
 
 @admin.register(State)
 class StateAdmin(admin.ModelAdmin):

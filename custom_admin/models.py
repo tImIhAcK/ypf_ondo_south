@@ -81,7 +81,7 @@ class Participant(models.Model):
     linkedin = models.CharField(verbose_name='LinkedIn', null=True, max_length=60)
     address = models.CharField(verbose_name='Address', null=True ,max_length=100)
     city = models.CharField(verbose_name='City/Town', null=True, max_length=20)
-    state = models.ForeignKey(State, on_delete=models.DO_NOTHING, related_name='participant_state')
+    state = models.ForeignKey(State, on_delete=models.DO_NOTHING, related_name='convert_state')
     region = ChainedForeignKey(Region,
                                 chained_field="state",
                                 chained_model_field="state",

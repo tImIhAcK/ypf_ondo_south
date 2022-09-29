@@ -20,5 +20,10 @@ def total_region():
 
 @register.simple_tag
 def total_participants():
-    # Total number of registered state
+    # Total number of registered participants
     return Participant.objects.count()
+
+@register.simple_tag
+def total_convert():
+    # Total number of registered convert
+    return Convert.objects.count()

@@ -17,11 +17,11 @@ class StateAdmin(admin.ModelAdmin):
 @admin.register(Participant)
 class ParticipantAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'gender', 'email', 'phone_no')
-    list_filter = ('first_name', 'last_name', 'gender', 'state', 'region')
+    list_filter = ('gender', 'state', 'region', 'category', 'denomination')
     
 @admin.register(Convert)
 class ConvertAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'gender', 'email', 'phone_no')
-    list_filter = ('first_name', 'last_name', 'gender', 'state', 'region')
+    list_filter = ('gender', 'state', 'region', 'category', 'denomination')
 
 # admin.site.unregister(Group)

@@ -14,7 +14,7 @@ def total_states():
     return State.objects.count()
 
 @register.simple_tag
-def total_region():
+def total_regions():
     # Total number of registered region
     return Region.objects.count()
 

@@ -104,7 +104,7 @@ class Participant(models.Model):
         ordering = ['first_name']
 
 
-class Convert(Participant):
+class Convert(models.Model):
     GENDER_CHOICES =(
         ('', 'Select gender'),
         ("M", "Male"),

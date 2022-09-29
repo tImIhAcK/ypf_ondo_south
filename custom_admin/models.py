@@ -23,8 +23,6 @@ class Region(models.Model):
         ordering = ['id']
 
 
-
-
 class Participant(models.Model):
     GENDER_CHOICES =(
         ('', 'Select gender'),

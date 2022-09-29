@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # import django_heroku
 # django_heroku.settings(locals())
@@ -138,8 +139,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'admin:login.html'
-LOGIN_REDIRECT_URL = 'admin:index.html'
+LOGIN_URL = reverse_lazy('admin:login')
+LOGIN_REDIRECT_URL = reverse_lazy('admin:index')
 
 
 

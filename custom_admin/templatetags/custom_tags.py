@@ -24,6 +24,6 @@ def total_participants():
     return Participant.objects.count()
 
 @register.simple_tag
-def total_convert():
+def total_converts():
     # Total number of registered convert
     return Convert.objects.count()

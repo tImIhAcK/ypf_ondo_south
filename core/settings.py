@@ -19,9 +19,8 @@ DEBUG = True
 USE_L10N = False
 USE_TZ = False
 
-CSRF_TRUSTED_ORIGIN = ['https://ypfonline.up.railway.app', '127.0.0.1']
+CSRF_TRUSTED_ORIGIN = ['ypfonline.up.railway.app']
 ALLOWED_HOSTS = ['ypfonline.up.railway.app', '127.0.0.1']
-CSRF_COOKIE_SECURE=False
 
 
 # Application definition

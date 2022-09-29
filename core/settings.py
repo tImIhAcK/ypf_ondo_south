@@ -20,6 +20,7 @@ USE_L10N = False
 USE_TZ = False
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGIN = ['https://ypfonline.up.railway.app']
 
 
 # Application definition
@@ -159,5 +160,9 @@ JAZZMIN_SETTINGS = {
 
 # Cripsy Settings
 # CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+# CORS_ORIGIN_ALLOW_ALL = True
+
+# CORS_ALLOW_HEADERS = ['*']
+# CORS_ORIGIN_WHITELIST = ('http://localhost:3000','https://frontend-git-main-edujobs-ng.vercel.app')
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"

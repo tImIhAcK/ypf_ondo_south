@@ -28,3 +28,4 @@ wagtail==4.0.1
 webencodings==0.5.1
 Werkzeug==2.2.1
 whitenoise==6.2.0
+markdown==3.4.1

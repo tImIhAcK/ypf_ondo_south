@@ -46,7 +46,7 @@ class Participant(models.Model):
     
     DENOMINATION_CHOICES = (
         ('', 'Select denomination'),
-        ('DLCB', 'Depper Life Bible Church'),
+        ('DLBC', 'Depper Life Bible Church'),
         ('RCCG', 'Redeem Christian Church Of God'),
         ('CAC', 'Christ Apostolic Church'),
         ('AF', 'Apostolic Faith'),
@@ -91,7 +91,7 @@ class Participant(models.Model):
     category  = models.CharField(verbose_name='Category', null=True, max_length=20, choices=CATEGORY_CHOICES)
     school = models.CharField(verbose_name='School/Work Address', null=True, max_length=100)
     denomination = models.CharField(verbose_name='Denomination', null=True, max_length=10, choices=DENOMINATION_CHOICES)
-    registered_on = models.DateTimeField(auto_now_add=True)
+    registered_date = models.DateTimeField(auto_now_add=True)
 
     
     @property
@@ -102,7 +102,7 @@ class Participant(models.Model):
         return self.full_name   
 
     class Meta():
-        ordering = ['-registered_on']
+        ordering = ['-registered_date']
 
 
 class Convert(models.Model):
@@ -128,7 +128,7 @@ class Convert(models.Model):
     
     DENOMINATION_CHOICES = (
         ('', 'Select denomination'),
-        ('DLCB', 'Depper Life Bible Church'),
+        ('DLBC', 'Depper Life Bible Church'),
         ('RCCG', 'Redeem Christian Church Of God'),
         ('CAC', 'Christ Apostolic Church'),
         ('AF', 'Apostolic Faith'),
@@ -172,7 +172,7 @@ class Convert(models.Model):
     category  = models.CharField(verbose_name='Category', null=True, max_length=20, choices=CATEGORY_CHOICES)
     school = models.CharField(verbose_name='School/Work Address', null=True, max_length=100)
     denomination = models.CharField(verbose_name='Denomination', null=True, max_length=10, choices=DENOMINATION_CHOICES)
-    registered_on = models.DateTimeField(auto_now_add=True)
+    registered_date = models.DateTimeField(auto_now_add=True)
 
     
     @property
@@ -181,5 +181,6 @@ class Convert(models.Model):
     
     def __str__(self) -> str:
         return self.full_name
+    
     class Meta():
-        ordering = ['-registered_on']
+        ordering = ['-registered_date']

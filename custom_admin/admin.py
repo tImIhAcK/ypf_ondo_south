@@ -6,7 +6,7 @@ from .models import Participant, Convert, Region, State
 @admin.register(Region)
 class RegionAdmin(admin.ModelAdmin):
     list_display= ('id', 'region', 'state')
-    list_filter=('region', 'state')
+    list_filter=('state')
 
 @admin.register(State)
 class StateAdmin(admin.ModelAdmin):
@@ -17,11 +17,11 @@ class StateAdmin(admin.ModelAdmin):
 @admin.register(Participant)
 class ParticipantAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'gender', 'email', 'phone_no')
-    list_filter = ('first_name', 'last_name', 'gender')
+    list_filter = ('first_name', 'last_name', 'gender', 'state', 'region')
     
 @admin.register(Convert)
 class ConvertAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'gender', 'email', 'phone_no')
-    list_filter = ('first_name', 'last_name', 'gender')
+    list_filter = ('first_name', 'last_name', 'gender', 'state', 'region')
 
 # admin.site.unregister(Group)

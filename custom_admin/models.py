@@ -103,6 +103,8 @@ class Participant(models.Model):
 
     class Meta():
         ordering = ['-registered_date']
+        verbose_name = 'participant'
+        verbose_name_plural = 'participants'
 
 
 class Convert(models.Model):
@@ -184,3 +186,5 @@ class Convert(models.Model):
     
     class Meta():
         ordering = ['-registered_date']
+        verbose_name = 'convert'
+        verbose_name_plural = 'converts'

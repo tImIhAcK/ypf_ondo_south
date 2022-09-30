@@ -1,26 +1,29 @@
 import os
 from pathlib import Path
 from django.urls import reverse_lazy
-
+from dotenv import load_dotenv
+import dj_database_url
 # import django_heroku
 # django_heroku.settings(locals())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-wtns8-+#(fked)61!ke@n8s&2@@$)0@4%ayfnkbc#y1#wf4=xs'
+# SECRET_KEY = 'django-insecure-wtns8-+#(fked)61!ke@n8s&2@@$)0@4%ayfnkbc#y1#wf4=xs'
+SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production
-DEBUG = True
+DEBUG = False 
 
 USE_L10N = False
 USE_TZ = False
 
-ALLOWED_HOSTS = ['ypfonline.up.railway.app']
+ALLOWED_HOSTS = ['ypfonline.up.railway.app', '127.0.0.1']
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -82,13 +85,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+# https://docs.djangoproject.com/en/4.0/ref/settings/#database
+DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+
 }
 
 

@@ -46,16 +46,22 @@ class Participant(models.Model):
     
     DENOMINATION_CHOICES = (
         ('', 'Select denomination'),
-        ('DLBC', 'Depper Life Bible Church'),
-        ('RCCG', 'Redeem Christian Church Of God'),
+        ('DLBC', 'Deeper Life Bible Church'),
+        ('RCCG', 'The Redeemed Christian Church Of God'),
         ('CAC', 'Christ Apostolic Church'),
-        ('AF', 'Apostolic Faith'),
-        ('MFM', 'Mountain Of Fire'),
+        ('AFC', 'Apostolic Faith Church'),
+        ('MFM', 'Mountain of Fire and Miracle Ministry'),
         ('GOFAMINT', 'Gospel Faith Mission'),
-        ('WC', 'Winners Chapel'),
-        ('CATH', 'Catholic'),
+        ('LFC', 'Living Faith Church'),
+        ('CATH', 'Catholic Church'),
         ('ANG', 'Anglican Church'),
         ('BAP', 'Baptist Church'),
+        ('CEM', 'Christ Embassy'),
+        ('MTH', 'Methodist Church'),
+        ('TLC', 'The Lord\'s Chosen'),
+        ('CCC', 'Celestial Church of Christ'),
+        ('C&S', 'Cherubim and Seraphim'),
+        ('OTH', 'Others'),
     )
     
     CATEGORY_CHOICES =(
@@ -68,7 +74,8 @@ class Participant(models.Model):
         ('YOUNG PROF', 'Young Professionals'),
         ('RES', 'Researcher'),
         ('TERT STAFF', 'Tertiary Institution Worker'),
-        ('POST SEC', 'Post Secondary School Student')
+        ('POST SEC', 'Post Secondary School Student'),
+        ('OTH', 'Others'),
     )
     
      

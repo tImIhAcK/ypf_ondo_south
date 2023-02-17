@@ -3,7 +3,6 @@ asgiref==3.5.2
 Babel==2.10.3
 crispy-bootstrap5==0.6
 cytoolz==0.11.0
-daal4py==2021.3.0
 dask==2021.10.0
 dj-database-url==1.0.0
 Django==4.0.6

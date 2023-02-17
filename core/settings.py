@@ -18,11 +18,12 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # SECRET_KEY = 'django-insecure-wtns8-+#(fked)61!ke@n8s&2@@$)0@4%ayfnkbc#y1#wf4=xs'
 SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production
-DEBUG = os.getenv('DEBUG') 
+DEBUG = os.getenv('DEBUG')
 
 USE_L10N = False
 USE_TZ = False
 
+ALLOWED_HOST = []
 ALLOWED_HOSTS = ['ypfonline.up.railway.app', '127.0.0.1']
 
 CSRF_COOKIE_SECURE = True
@@ -129,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 
 MEDIA_URL = '/media/'

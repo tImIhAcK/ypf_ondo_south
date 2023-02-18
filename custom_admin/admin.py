@@ -14,7 +14,7 @@ class RegionAdmin(admin.ModelAdmin):
 class StateAdmin(admin.ModelAdmin):
     list_display = ('id', 'state')
     
-def move_participant_to_convert(modeladmin, request, queryset):
+def move_to_convert(modeladmin, request, queryset):
     for participant in queryset:
         convert = Convert.objects.create(
             first_name=participant.first_name,
@@ -35,7 +35,7 @@ def move_participant_to_convert(modeladmin, request, queryset):
         convert.save()
     messages.success(request, f"{len(queryset)} participants moved to convert.")
 
-def move_participant_to_newcomer(modeladmin, request, queryset):
+def move_to_newcomer(modeladmin, request, queryset):
     for participant in queryset:
         newcomer = Newcomer.objects.create(
             first_name=participant.first_name,
@@ -60,7 +60,7 @@ def move_participant_to_newcomer(modeladmin, request, queryset):
 class ParticipantAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'gender', 'region', 'state')
     list_filter = ('gender', 'state', 'region', 'category', 'denomination', 'registered_date')
-    actions = [move_participant_to_convert, move_participant_to_newcomer]
+    actions = [move_to_convert, move_to_newcomer]
     
     def move_to_convert(self, obj):
         return mark_safe('<a class="button" href="{}">Move to convert</a>',

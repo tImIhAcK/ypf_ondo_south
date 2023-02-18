@@ -8,8 +8,8 @@ from django.conf.urls.static import static
 app_name = 'custom_admin'
 urlpatterns = [
     path('', views.DashboardView.as_view(), name='dashboard'),
-    path('/move-participant-to-convert/', admin.move_participant_to_convert, name='move-participant-to-convert'),
-    path('/move-participant-to-newcomer/', admin.move_participant_to_newcomer, name='move-participant-to-newcomer'),
+    path('/move-participant-to-convert/', admin.move_to_convert, name='move-participant-to-convert'),
+    path('/move-participant-to-newcomer/', admin.move_to_newcomer, name='move-participant-to-newcomer'),
 ]
 
 if settings.DEBUG:

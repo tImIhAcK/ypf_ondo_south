@@ -12,6 +12,7 @@ urlpatterns = [
     # path('location/', views.location, name='location'),
     path('participant/', views.participant, name='participant'),
     path('convert/', views.convert, name='convert'),
+    path('newcomer/', views.convert, name='newcomer'),
     
     
     

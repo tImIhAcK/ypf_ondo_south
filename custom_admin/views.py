@@ -19,7 +19,8 @@ from core.mixins import(
 from . forms import (
     # LocationForm,
     ParticipantForm,
-    ConvertForm
+    ConvertForm,
+    NewcomerForm,
 )    
 
 
@@ -72,3 +73,18 @@ def convert(request):
     else:
         form = ConvertForm()
     return render(request, 'admin/convert.html', context={'form': form})
+
+@login_required()
+def newcomer(request):
+    if request.method == "POST":
+        form = NewcomerForm(data = request.POST)
+        if form.is_valid():
+            obj = form.save()
+            obj.save()
+            messages.success(request, f'Newcomer registered sucessfully')
+            return redirect('participant')
+        else:
+            messages.error(request, 'Error registering newcomer')
+    else:
+        form = NewcomerForm()
+    return render(request, 'admin/newcomer.html', context={'form': form})

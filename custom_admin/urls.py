@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 app_name = 'custom_admin'
 urlpatterns = [
     path('', views.DashboardView.as_view(), name='dashboard'),
+     path('/move-participant-to-convert/', admin.copy_users_to_customer, name='move-participant-to-convert'),
 
 ]
 
